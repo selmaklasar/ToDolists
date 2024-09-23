@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDolist</title>
+    <link rel="stylesheet" href="Todolist.css">
+    <style>
+        #delete{
+            width: 122px;
+    height: 40px;
+    color: blue;
+    font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="heading">ToDoList</h1>
+
+    <input id="inputbox" style="font-size: 32px;">
+   
+    <button id="addbtn" onclick="Add()">ADD</button>
+
+   <ul id="div">
+    <li style="font-size: 40px;">
+       
+    </li> 
+   </ul>
+   
+
+    <script>
+     var div=document.getElementById("div")
+     var inputbox=document.getElementById("inputbox")
+     var deleteButton = document.createElement("button");
+            deleteButton.innerHTML = "Delete";
+            deleteButton.id = "delete"; // Assign the id for styling
+            deleteButton.onclick = function(event) {
+                deleteitem(event);
+            };
+            
+     
+   function Add(){
+      var listitem=document.createElement("li") 
+       listitem.innerHTML=inputbox.value + "<button onclick='deleteitem(event)''>Delete</button>"
+       div.append(listitem)
+       listitem.style.color="navy"
+       listitem.style.fontSize="40px"
+       listitem.style.marginLeft="300px"
+       listitem.style.background="white"
+       
+       
+   }
+ 
+function deleteitem(event){
+ event.target.parentElement.remove();
+ 
+}
+    </script>
+
+</body>
+</html>
